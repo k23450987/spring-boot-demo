@@ -6,6 +6,7 @@ import com.tom.model.Person;
 import com.tom.service.PersonService;
 import java.util.List;
 import javax.annotation.Resource;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -24,6 +25,7 @@ public class PersonServiceImpl implements PersonService {
         return dao.insert(record);
     }
 
+    @Secured("ROLE_ADMIN")
     @Override
     public int insertSelective(Person record) {
         return dao.insertSelective(record);
