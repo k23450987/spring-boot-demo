@@ -9,6 +9,12 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.core.userdetails.UserDetailsService;
 
+/*
+    Spring Security 设置类
+    @EnableWebSecurity 开启全局权限管理
+    @EnableGlobalMethodSecurity(securedEnabled = true) 启用 @Secured 注解
+*/
+
 @Configuration
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
@@ -16,7 +22,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     UserDetailsService springSecUserServiceImpl() {
-        return new SpringSecUserServiceImpl();
+        return new SpringSecUserServiceImpl();  // 引入用户自定义的 UserDetailsService
     }
 
     @Override
