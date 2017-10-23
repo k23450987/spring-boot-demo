@@ -25,6 +25,7 @@ public class PersonServiceImpl implements PersonService {
         return dao.insert(record);
     }
 
+    // 新增 需要管理员权限
     @Secured("ROLE_ADMIN")
     @Override
     public int insertSelective(Person record) {
