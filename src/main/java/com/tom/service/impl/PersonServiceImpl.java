@@ -8,7 +8,9 @@ import java.util.List;
 import javax.annotation.Resource;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
+@Transactional(rollbackFor = Exception.class)
 @Service
 public class PersonServiceImpl implements PersonService {
 
